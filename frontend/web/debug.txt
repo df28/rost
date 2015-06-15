@@ -1,0 +1,971 @@
+yii\db\ActiveQuery#1
+(
+    [sql] => null
+    [on] => null
+    [joinWith] => null
+    [select] => null
+    [selectOption] => null
+    [distinct] => null
+    [from] => null
+    [groupBy] => null
+    [join] => null
+    [having] => null
+    [union] => null
+    [params] => []
+    [yii\base\Component:_events] => []
+    [yii\base\Component:_behaviors] => []
+    [where] => null
+    [limit] => null
+    [offset] => null
+    [orderBy] => null
+    [indexBy] => null
+    [modelClass] => 'common\\modules\\advert\\models\\AdvertAddress'
+    [with] => null
+    [asArray] => null
+    [multiple] => false
+    [primaryModel] => common\modules\advert\models\Advert#2
+    (
+        [yii\db\BaseActiveRecord:_attributes] => [
+            'id' => 1
+            'tutorid' => 1
+            'cityid' => 1
+            'experience' => 10
+            'address' => 'Есенина 87'
+            'description' => 'Сделаю из вашего сына или дочки гения!'
+            'tutor_grade_id' => 2
+        ]
+        [yii\db\BaseActiveRecord:_oldAttributes] => [
+            'id' => 1
+            'tutorid' => 1
+            'cityid' => 1
+            'experience' => 10
+            'address' => 'Есенина 87'
+            'description' => 'Сделаю из вашего сына или дочки гения!'
+            'tutor_grade_id' => 2
+        ]
+        [yii\db\BaseActiveRecord:_related] => [
+            'city' => common\modules\advert\models\City#3
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'id' => 1
+                    'name' => 'Минск'
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'id' => 1
+                    'name' => 'Минск'
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+            'tutor' => common\models\User#4
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'id' => 1
+                    'username' => 'df28'
+                    'auth_key' => 'sC7aZRIQWDvu4kztFLaVluLbJja1f4zv'
+                    'password_hash' => '$2y$13$XF.ITZSmx.s/jDEsYpjz.uYqJ/hnMuplsH6eUtyfsyGutfnV/k4LO'
+                    'password_reset_token' => null
+                    'email' => 'Pavel.Kudosh@gmail.com'
+                    'status' => 10
+                    'created_at' => 1426093898
+                    'updated_at' => 1426093898
+                    'roleid' => 1
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'id' => 1
+                    'username' => 'df28'
+                    'auth_key' => 'sC7aZRIQWDvu4kztFLaVluLbJja1f4zv'
+                    'password_hash' => '$2y$13$XF.ITZSmx.s/jDEsYpjz.uYqJ/hnMuplsH6eUtyfsyGutfnV/k4LO'
+                    'password_reset_token' => null
+                    'email' => 'Pavel.Kudosh@gmail.com'
+                    'status' => 10
+                    'created_at' => 1426093898
+                    'updated_at' => 1426093898
+                    'roleid' => 1
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => [
+                    'beforeInsert' => [
+                        0 => [
+                            0 => [
+                                0 => yii\behaviors\TimestampBehavior#5
+                                (
+                                    [createdAtAttribute] => 'created_at'
+                                    [updatedAtAttribute] => 'updated_at'
+                                    [value] => null
+                                    [attributes] => [
+                                        'beforeInsert' => [...]
+                                        'beforeUpdate' => 'updated_at'
+                                    ]
+                                    [owner] => common\models\User#4(...)
+                                )
+                                1 => 'evaluateAttributes'
+                            ]
+                            1 => null
+                        ]
+                    ]
+                    'beforeUpdate' => [
+                        0 => [
+                            0 => [
+                                0 => yii\behaviors\TimestampBehavior#5(...)
+                                1 => 'evaluateAttributes'
+                            ]
+                            1 => null
+                        ]
+                    ]
+                ]
+                [yii\base\Component:_behaviors] => [
+                    0 => yii\behaviors\TimestampBehavior#5(...)
+                ]
+            )
+            'advertGoals' => [
+                0 => common\modules\advert\models\StudyGoal#6
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 3
+                        'name' => 'Подготовка в лицей'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 3
+                        'name' => 'Подготовка в лицей'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+                1 => common\modules\advert\models\StudyGoal#7
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 4
+                        'name' => '7-9 класс'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 4
+                        'name' => '7-9 класс'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+            ]
+            'advertSubjects' => [
+                0 => common\modules\advert\models\Subject#8
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 3
+                        'name' => 'Английский'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 3
+                        'name' => 'Английский'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+            ]
+            'advertPrice' => common\modules\advert\models\AdvertPrice#9
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'advertid' => 1
+                    'studentplace' => 500
+                    'tutorplace' => 400
+                    'remote' => 100
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'advertid' => 1
+                    'studentplace' => 500
+                    'tutorplace' => 400
+                    'remote' => 100
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+            'advertAddress' => common\modules\advert\models\AdvertAddress#10
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'advertid' => 1
+                    'longitude' => '27.4431640'
+                    'latitude' => '53.8608370'
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'advertid' => 1
+                    'longitude' => '27.4431640'
+                    'latitude' => '53.8608370'
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+        ]
+        [yii\base\Model:_errors] => null
+        [yii\base\Model:_validators] => null
+        [yii\base\Model:_scenario] => 'default'
+        [yii\base\Component:_events] => []
+        [yii\base\Component:_behaviors] => []
+    )
+    [link] => [
+        'advertid' => 'id'
+    ]
+    [via] => null
+    [inverseOf] => null
+)yii\db\ActiveQuery#1
+(
+    [sql] => null
+    [on] => null
+    [joinWith] => null
+    [select] => null
+    [selectOption] => null
+    [distinct] => null
+    [from] => null
+    [groupBy] => null
+    [join] => null
+    [having] => null
+    [union] => null
+    [params] => []
+    [yii\base\Component:_events] => []
+    [yii\base\Component:_behaviors] => []
+    [where] => null
+    [limit] => null
+    [offset] => null
+    [orderBy] => null
+    [indexBy] => null
+    [modelClass] => 'common\\modules\\advert\\models\\AdvertAddress'
+    [with] => null
+    [asArray] => null
+    [multiple] => false
+    [primaryModel] => common\modules\advert\models\Advert#2
+    (
+        [yii\db\BaseActiveRecord:_attributes] => [
+            'id' => 3
+            'tutorid' => 1
+            'cityid' => 1
+            'experience' => 123
+            'address' => 'Независимости, д.5'
+            'description' => 'Никого делать не буду - сами пусть учатся!'
+            'tutor_grade_id' => 1
+        ]
+        [yii\db\BaseActiveRecord:_oldAttributes] => [
+            'id' => 3
+            'tutorid' => 1
+            'cityid' => 1
+            'experience' => 123
+            'address' => 'Независимости, д.5'
+            'description' => 'Никого делать не буду - сами пусть учатся!'
+            'tutor_grade_id' => 1
+        ]
+        [yii\db\BaseActiveRecord:_related] => [
+            'city' => common\modules\advert\models\City#3
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'id' => 1
+                    'name' => 'Минск'
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'id' => 1
+                    'name' => 'Минск'
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+            'tutor' => common\models\User#4
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'id' => 1
+                    'username' => 'df28'
+                    'auth_key' => 'sC7aZRIQWDvu4kztFLaVluLbJja1f4zv'
+                    'password_hash' => '$2y$13$XF.ITZSmx.s/jDEsYpjz.uYqJ/hnMuplsH6eUtyfsyGutfnV/k4LO'
+                    'password_reset_token' => null
+                    'email' => 'Pavel.Kudosh@gmail.com'
+                    'status' => 10
+                    'created_at' => 1426093898
+                    'updated_at' => 1426093898
+                    'roleid' => 1
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'id' => 1
+                    'username' => 'df28'
+                    'auth_key' => 'sC7aZRIQWDvu4kztFLaVluLbJja1f4zv'
+                    'password_hash' => '$2y$13$XF.ITZSmx.s/jDEsYpjz.uYqJ/hnMuplsH6eUtyfsyGutfnV/k4LO'
+                    'password_reset_token' => null
+                    'email' => 'Pavel.Kudosh@gmail.com'
+                    'status' => 10
+                    'created_at' => 1426093898
+                    'updated_at' => 1426093898
+                    'roleid' => 1
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => [
+                    'beforeInsert' => [
+                        0 => [
+                            0 => [
+                                0 => yii\behaviors\TimestampBehavior#5
+                                (
+                                    [createdAtAttribute] => 'created_at'
+                                    [updatedAtAttribute] => 'updated_at'
+                                    [value] => null
+                                    [attributes] => [
+                                        'beforeInsert' => [...]
+                                        'beforeUpdate' => 'updated_at'
+                                    ]
+                                    [owner] => common\models\User#4(...)
+                                )
+                                1 => 'evaluateAttributes'
+                            ]
+                            1 => null
+                        ]
+                    ]
+                    'beforeUpdate' => [
+                        0 => [
+                            0 => [
+                                0 => yii\behaviors\TimestampBehavior#5(...)
+                                1 => 'evaluateAttributes'
+                            ]
+                            1 => null
+                        ]
+                    ]
+                ]
+                [yii\base\Component:_behaviors] => [
+                    0 => yii\behaviors\TimestampBehavior#5(...)
+                ]
+            )
+            'advertGoals' => [
+                0 => common\modules\advert\models\StudyGoal#6
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 1
+                        'name' => 'Подготовка к ЦТ'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 1
+                        'name' => 'Подготовка к ЦТ'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+                1 => common\modules\advert\models\StudyGoal#7
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 2
+                        'name' => '10-11 класс'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 2
+                        'name' => '10-11 класс'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+                2 => common\modules\advert\models\StudyGoal#8
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 3
+                        'name' => 'Подготовка в лицей'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 3
+                        'name' => 'Подготовка в лицей'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+            ]
+            'advertSubjects' => [
+                0 => common\modules\advert\models\Subject#9
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 1
+                        'name' => 'Математика'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 1
+                        'name' => 'Математика'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+                1 => common\modules\advert\models\Subject#10
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 2
+                        'name' => 'Физика'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 2
+                        'name' => 'Физика'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+            ]
+            'advertPrice' => common\modules\advert\models\AdvertPrice#11
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'advertid' => 3
+                    'studentplace' => 15
+                    'tutorplace' => 450
+                    'remote' => 45
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'advertid' => 3
+                    'studentplace' => 15
+                    'tutorplace' => 450
+                    'remote' => 45
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+            'advertAddress' => common\modules\advert\models\AdvertAddress#12
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'advertid' => 3
+                    'longitude' => '27.5508090'
+                    'latitude' => '53.8968830'
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'advertid' => 3
+                    'longitude' => '27.5508090'
+                    'latitude' => '53.8968830'
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+        ]
+        [yii\base\Model:_errors] => null
+        [yii\base\Model:_validators] => null
+        [yii\base\Model:_scenario] => 'default'
+        [yii\base\Component:_events] => []
+        [yii\base\Component:_behaviors] => []
+    )
+    [link] => [
+        'advertid' => 'id'
+    ]
+    [via] => null
+    [inverseOf] => null
+)yii\db\ActiveQuery#1
+(
+    [sql] => null
+    [on] => null
+    [joinWith] => null
+    [select] => null
+    [selectOption] => null
+    [distinct] => null
+    [from] => null
+    [groupBy] => null
+    [join] => null
+    [having] => null
+    [union] => null
+    [params] => []
+    [yii\base\Component:_events] => []
+    [yii\base\Component:_behaviors] => []
+    [where] => null
+    [limit] => null
+    [offset] => null
+    [orderBy] => null
+    [indexBy] => null
+    [modelClass] => 'common\\modules\\advert\\models\\AdvertAddress'
+    [with] => null
+    [asArray] => null
+    [multiple] => false
+    [primaryModel] => common\modules\advert\models\Advert#2
+    (
+        [yii\db\BaseActiveRecord:_attributes] => [
+            'id' => 6
+            'tutorid' => 1
+            'cityid' => 1
+            'experience' => 50
+            'address' => 'улица Есенина, 63'
+            'description' => 'Профессиональный гуру сделает из вашего ребенка падавана'
+            'tutor_grade_id' => 1
+        ]
+        [yii\db\BaseActiveRecord:_oldAttributes] => [
+            'id' => 6
+            'tutorid' => 1
+            'cityid' => 1
+            'experience' => 50
+            'address' => 'улица Есенина, 63'
+            'description' => 'Профессиональный гуру сделает из вашего ребенка падавана'
+            'tutor_grade_id' => 1
+        ]
+        [yii\db\BaseActiveRecord:_related] => [
+            'city' => common\modules\advert\models\City#3
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'id' => 1
+                    'name' => 'Минск'
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'id' => 1
+                    'name' => 'Минск'
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+            'tutor' => common\models\User#4
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'id' => 1
+                    'username' => 'df28'
+                    'auth_key' => 'sC7aZRIQWDvu4kztFLaVluLbJja1f4zv'
+                    'password_hash' => '$2y$13$XF.ITZSmx.s/jDEsYpjz.uYqJ/hnMuplsH6eUtyfsyGutfnV/k4LO'
+                    'password_reset_token' => null
+                    'email' => 'Pavel.Kudosh@gmail.com'
+                    'status' => 10
+                    'created_at' => 1426093898
+                    'updated_at' => 1426093898
+                    'roleid' => 1
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'id' => 1
+                    'username' => 'df28'
+                    'auth_key' => 'sC7aZRIQWDvu4kztFLaVluLbJja1f4zv'
+                    'password_hash' => '$2y$13$XF.ITZSmx.s/jDEsYpjz.uYqJ/hnMuplsH6eUtyfsyGutfnV/k4LO'
+                    'password_reset_token' => null
+                    'email' => 'Pavel.Kudosh@gmail.com'
+                    'status' => 10
+                    'created_at' => 1426093898
+                    'updated_at' => 1426093898
+                    'roleid' => 1
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => [
+                    'beforeInsert' => [
+                        0 => [
+                            0 => [
+                                0 => yii\behaviors\TimestampBehavior#5
+                                (
+                                    [createdAtAttribute] => 'created_at'
+                                    [updatedAtAttribute] => 'updated_at'
+                                    [value] => null
+                                    [attributes] => [
+                                        'beforeInsert' => [...]
+                                        'beforeUpdate' => 'updated_at'
+                                    ]
+                                    [owner] => common\models\User#4(...)
+                                )
+                                1 => 'evaluateAttributes'
+                            ]
+                            1 => null
+                        ]
+                    ]
+                    'beforeUpdate' => [
+                        0 => [
+                            0 => [
+                                0 => yii\behaviors\TimestampBehavior#5(...)
+                                1 => 'evaluateAttributes'
+                            ]
+                            1 => null
+                        ]
+                    ]
+                ]
+                [yii\base\Component:_behaviors] => [
+                    0 => yii\behaviors\TimestampBehavior#5(...)
+                ]
+            )
+            'advertGoals' => [
+                0 => common\modules\advert\models\StudyGoal#6
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 1
+                        'name' => 'Подготовка к ЦТ'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 1
+                        'name' => 'Подготовка к ЦТ'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+                1 => common\modules\advert\models\StudyGoal#7
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 2
+                        'name' => '10-11 класс'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 2
+                        'name' => '10-11 класс'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+            ]
+            'advertSubjects' => [
+                0 => common\modules\advert\models\Subject#8
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 1
+                        'name' => 'Математика'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 1
+                        'name' => 'Математика'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+                1 => common\modules\advert\models\Subject#9
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 2
+                        'name' => 'Физика'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 2
+                        'name' => 'Физика'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+            ]
+            'advertPrice' => common\modules\advert\models\AdvertPrice#10
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'advertid' => 6
+                    'studentplace' => null
+                    'tutorplace' => 800000
+                    'remote' => null
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'advertid' => 6
+                    'studentplace' => null
+                    'tutorplace' => 800000
+                    'remote' => null
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+            'advertAddress' => common\modules\advert\models\AdvertAddress#11
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'advertid' => 6
+                    'longitude' => '27.4431100'
+                    'latitude' => '53.8567960'
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'advertid' => 6
+                    'longitude' => '27.4431100'
+                    'latitude' => '53.8567960'
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+        ]
+        [yii\base\Model:_errors] => null
+        [yii\base\Model:_validators] => null
+        [yii\base\Model:_scenario] => 'default'
+        [yii\base\Component:_events] => []
+        [yii\base\Component:_behaviors] => []
+    )
+    [link] => [
+        'advertid' => 'id'
+    ]
+    [via] => null
+    [inverseOf] => null
+)yii\db\ActiveQuery#1
+(
+    [sql] => null
+    [on] => null
+    [joinWith] => null
+    [select] => null
+    [selectOption] => null
+    [distinct] => null
+    [from] => null
+    [groupBy] => null
+    [join] => null
+    [having] => null
+    [union] => null
+    [params] => []
+    [yii\base\Component:_events] => []
+    [yii\base\Component:_behaviors] => []
+    [where] => null
+    [limit] => null
+    [offset] => null
+    [orderBy] => null
+    [indexBy] => null
+    [modelClass] => 'common\\modules\\advert\\models\\AdvertAddress'
+    [with] => null
+    [asArray] => null
+    [multiple] => false
+    [primaryModel] => common\modules\advert\models\Advert#2
+    (
+        [yii\db\BaseActiveRecord:_attributes] => [
+            'id' => 13
+            'tutorid' => 1
+            'cityid' => 1
+            'experience' => 10
+            'address' => 'Есенина 73'
+            'description' => ''
+            'tutor_grade_id' => 2
+        ]
+        [yii\db\BaseActiveRecord:_oldAttributes] => [
+            'id' => 13
+            'tutorid' => 1
+            'cityid' => 1
+            'experience' => 10
+            'address' => 'Есенина 73'
+            'description' => ''
+            'tutor_grade_id' => 2
+        ]
+        [yii\db\BaseActiveRecord:_related] => [
+            'city' => common\modules\advert\models\City#3
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'id' => 1
+                    'name' => 'Минск'
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'id' => 1
+                    'name' => 'Минск'
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+            'tutor' => common\models\User#4
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'id' => 1
+                    'username' => 'df28'
+                    'auth_key' => 'sC7aZRIQWDvu4kztFLaVluLbJja1f4zv'
+                    'password_hash' => '$2y$13$XF.ITZSmx.s/jDEsYpjz.uYqJ/hnMuplsH6eUtyfsyGutfnV/k4LO'
+                    'password_reset_token' => null
+                    'email' => 'Pavel.Kudosh@gmail.com'
+                    'status' => 10
+                    'created_at' => 1426093898
+                    'updated_at' => 1426093898
+                    'roleid' => 1
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'id' => 1
+                    'username' => 'df28'
+                    'auth_key' => 'sC7aZRIQWDvu4kztFLaVluLbJja1f4zv'
+                    'password_hash' => '$2y$13$XF.ITZSmx.s/jDEsYpjz.uYqJ/hnMuplsH6eUtyfsyGutfnV/k4LO'
+                    'password_reset_token' => null
+                    'email' => 'Pavel.Kudosh@gmail.com'
+                    'status' => 10
+                    'created_at' => 1426093898
+                    'updated_at' => 1426093898
+                    'roleid' => 1
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => [
+                    'beforeInsert' => [
+                        0 => [
+                            0 => [
+                                0 => yii\behaviors\TimestampBehavior#5
+                                (
+                                    [createdAtAttribute] => 'created_at'
+                                    [updatedAtAttribute] => 'updated_at'
+                                    [value] => null
+                                    [attributes] => [
+                                        'beforeInsert' => [...]
+                                        'beforeUpdate' => 'updated_at'
+                                    ]
+                                    [owner] => common\models\User#4(...)
+                                )
+                                1 => 'evaluateAttributes'
+                            ]
+                            1 => null
+                        ]
+                    ]
+                    'beforeUpdate' => [
+                        0 => [
+                            0 => [
+                                0 => yii\behaviors\TimestampBehavior#5(...)
+                                1 => 'evaluateAttributes'
+                            ]
+                            1 => null
+                        ]
+                    ]
+                ]
+                [yii\base\Component:_behaviors] => [
+                    0 => yii\behaviors\TimestampBehavior#5(...)
+                ]
+            )
+            'advertGoals' => [
+                0 => common\modules\advert\models\StudyGoal#6
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 3
+                        'name' => 'Подготовка в лицей'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 3
+                        'name' => 'Подготовка в лицей'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+            ]
+            'advertSubjects' => [
+                0 => common\modules\advert\models\Subject#7
+                (
+                    [yii\db\BaseActiveRecord:_attributes] => [
+                        'id' => 3
+                        'name' => 'Английский'
+                    ]
+                    [yii\db\BaseActiveRecord:_oldAttributes] => [
+                        'id' => 3
+                        'name' => 'Английский'
+                    ]
+                    [yii\db\BaseActiveRecord:_related] => []
+                    [yii\base\Model:_errors] => null
+                    [yii\base\Model:_validators] => null
+                    [yii\base\Model:_scenario] => 'default'
+                    [yii\base\Component:_events] => []
+                    [yii\base\Component:_behaviors] => []
+                )
+            ]
+            'advertPrice' => common\modules\advert\models\AdvertPrice#8
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'advertid' => 13
+                    'studentplace' => 100
+                    'tutorplace' => 90
+                    'remote' => 50
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'advertid' => 13
+                    'studentplace' => 100
+                    'tutorplace' => 90
+                    'remote' => 50
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+            'advertAddress' => common\modules\advert\models\AdvertAddress#9
+            (
+                [yii\db\BaseActiveRecord:_attributes] => [
+                    'advertid' => 13
+                    'longitude' => '27.4430830'
+                    'latitude' => '53.8575340'
+                ]
+                [yii\db\BaseActiveRecord:_oldAttributes] => [
+                    'advertid' => 13
+                    'longitude' => '27.4430830'
+                    'latitude' => '53.8575340'
+                ]
+                [yii\db\BaseActiveRecord:_related] => []
+                [yii\base\Model:_errors] => null
+                [yii\base\Model:_validators] => null
+                [yii\base\Model:_scenario] => 'default'
+                [yii\base\Component:_events] => []
+                [yii\base\Component:_behaviors] => []
+            )
+        ]
+        [yii\base\Model:_errors] => null
+        [yii\base\Model:_validators] => null
+        [yii\base\Model:_scenario] => 'default'
+        [yii\base\Component:_events] => []
+        [yii\base\Component:_behaviors] => []
+    )
+    [link] => [
+        'advertid' => 'id'
+    ]
+    [via] => null
+    [inverseOf] => null
+)
