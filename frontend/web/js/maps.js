@@ -8,14 +8,6 @@ var mapDefaultCenter = {lat: 53.8968830, long: 27.5508090};
 
 var AdvertsMap;
 
-var AdvertContentLayoutClass = ymaps.templateLayoutFactory.createClass(
-    '<div>' +
-        '{{ tutor_name }}' +
-        '{{ prices_html }}' +
-    '</div>'
-);
-
-
 function init () {
     initMap();
 }
@@ -28,11 +20,16 @@ function initMap()
         zoom: 10
     });
 
+    var AdvertContentLayoutClass = ymaps.templateLayoutFactory.createClass( AdvertContentTemplate );
+    ymaps.layout.storage.add('advert#default', AdvertContentLayoutClass);
+
     var objectManager = new ymaps.ObjectManager({
-        clusterize: true
+        clusterize: true,
+        geoObjectBalloonContentLayout: AdvertContentLayoutClass
     });
 
-    objectManager.add(advertsList);
+    if(advertsList)
+        objectManager.add(advertsList);
 
     AdvertsMap.geoObjects.add(objectManager);
 }

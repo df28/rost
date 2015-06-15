@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
-use yii\helpers\VarDumper;
+use yii\helpers\ArrayHelper;
+use \common\modules\advert\models\Advert;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\modules\advert\models\AdvertSearch */
@@ -8,24 +9,35 @@ use yii\helpers\VarDumper;
 
 $this->title = Yii::t('app', 'Tutors on map');
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
-<?php
+$thisView = $this;
 
-function getAdvertDetailsFromMap(\common\modules\advert\models\Advert $advert_model)
+
+function getAdvertDataForTemplate(Advert $advert)
 {
+    $advert_price = $advert->advertPrice;
     return [
-        'city' => '',
+        "city" => $advert->getCityName(),
+        "tutorName" => $advert->getTutorName(),
+        "address" => $advert->address,//TODO: address string must be in AdvertAddress model??
 
+        "studentPlacePrice" => $advert_price->studentplace,
+        "tutorPlacePrice" => $advert_price->tutorplace,
+        "remotePlacePrice" => $advert_price->remote,
+
+        "subjects" => implode(", ", ArrayHelper::getColumn($advert->advertSubjects, 'name')),
+        "goals" => implode(", ", ArrayHelper::getColumn($advert->advertGoals, 'name')),
+        "grade" => $advert->getTutorGradeName(),
+        "experience" => $advert->experience
     ];
 }
 
-function getAdvertCaptionForMap(\common\modules\advert\models\Advert $advert_model)
+function getAdvertCaptionForMap(Advert $advert_model)
 {
     return implode(', ', [$advert_model->getTutorName(), $advert_model->getTutorGradeName(), $advert_model->experience]);
 }
 
-function getAdvertAsMapConfig(\common\modules\advert\models\Advert $advert_model)
+function getAdvertAsMapConfig(Advert $advert_model)
 {
     if (!empty($advert_model->advertAddress)
         && $advert_model->advertAddress->longitude != ''
@@ -40,16 +52,31 @@ function getAdvertAsMapConfig(\common\modules\advert\models\Advert $advert_model
     $advert = [
         "type" => "Feature",
         "id" => $advert_model->id,
+        "balloonContentLayout" => "advert#default",
         "geometry" => [
             "type" => "Point",
             "coordinates" => $coords
         ],
         "properties" => [
-            "balloonContent" => getAdvertCaptionForMap($advert_model),
-            "hintContent" => getAdvertCaptionForMap($advert_model)
-        ]
+            "balloonContentLayout" => "advert#default",
+            //"balloonContent" => getAdvertCaptionForMap($advert_model),
+            //"hintContent" => getAdvertCaptionForMap($advert_model),
+            "tplVars" => getAdvertDataForTemplate($advert_model),
+        ],
+        "options" => ["balloonContentLayout" => "advert#default",]
     ];
     return $advert;
+}
+
+function getAdvertContentTemplateString(yii\web\View $view)
+{
+    $html = $view->render("templates/advert_content_template");
+
+    $html = preg_replace( "/\r|\n|\s{2,}/", "", $html );
+
+    $html = addslashes($html);
+
+    return $html;
 }
 
 ?>
@@ -69,8 +96,6 @@ function getAdvertAsMapConfig(\common\modules\advert\models\Advert $advert_model
 
     foreach ($search_results as $item) {
         $advertsMarksList["features"][] = getAdvertAsMapConfig($item);
-
-        $advertsDetailsList[$item->id] = getAdvertDetailsFromMap($item);
     }
 
     ?>
@@ -79,6 +104,6 @@ function getAdvertAsMapConfig(\common\modules\advert\models\Advert $advert_model
     </div>
 
     <script>var advertsList =<?= json_encode($advertsMarksList) ?></script>
-    <script>var advertsDetailsList =<?= json_encode($advertsDetailsList) ?></script>
+    <script>var AdvertContentTemplate = "<?php echo getAdvertContentTemplateString($thisView) ?>";</script>
 
 </div>
