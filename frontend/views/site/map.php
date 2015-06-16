@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use \common\modules\advert\models\Advert;
+use \common\modules\advert\models\City;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\modules\advert\models\AdvertSearch */
@@ -59,7 +60,6 @@ function getAdvertAsMapConfig(Advert $advert_model)
         "properties" => [
             "balloonContentLayout" => "advert#default",
             "balloonPanelMaxMapArea" => 0,
-            //"balloonContent" => getAdvertCaptionForMap($advert_model),
             //"hintContent" => getAdvertCaptionForMap($advert_model),
             "tplVars" => getAdvertDataForTemplate($advert_model),
         ],
@@ -72,36 +72,56 @@ function getAdvertContentTemplateString(yii\web\View $view)
 {
     $html = $view->render("templates/advert_content_template");
 
-    $html = preg_replace( "/\r|\n|\s{2,}/", "", $html );
+    $html = preg_replace("/\r|\n|\s{2,}/", "", $html);
 
     $html = addslashes($html);
 
     return $html;
 }
 
-?>
-
-<div class="site-about">
-    <?php
-
+function getAdvertMarksList($dataProvider)
+{
     $search_results = $dataProvider->getModels();
     $advertsMarksList = [
         "type" => "FeatureCollection",
         "features" => []
     ];
 
-    $advertsDetailsList = [];
-
     foreach ($search_results as $item) {
         $advertsMarksList["features"][] = getAdvertAsMapConfig($item);
     }
 
-    ?>
+    return $advertsMarksList;
+}
 
-    <div id="tutor_on_map" style="width:700px;height:500px">
-    </div>
+function getCityCoords(City $city)
+{
+    if (isset($city)) {
+        if (
+            isset($city->latitude) &&
+            intval($city->latitude) != 0 &&
+            isset($city->longitude) &&
+            intval($city->longitude) != 0
+        ) {
+            return ["lat" => $city->latitude, "long" => $city->longitude];
+        }
+    }
+    return false;
+}
 
-    <script>var advertsList =<?= json_encode($advertsMarksList) ?></script>
+?>
+
+<div class="site-about">
+
+    <div id="tutor_on_map" style="width:700px;height:500px"></div>
+
+    <script>var advertsList =<?= json_encode(getAdvertMarksList($dataProvider)) ?></script>
     <script>var AdvertContentTemplate = "<?php echo getAdvertContentTemplateString($thisView) ?>";</script>
+
+    <?php
+    $mapCenter = getCityCoords($searchModel->city);
+    if ($mapCenter) { ?>
+        <script>var mapCenter = <?= json_encode($mapCenter) ?></script>
+    <?php } ?>
 
 </div>

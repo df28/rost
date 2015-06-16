@@ -8,20 +8,23 @@ var mapDefaultCenter = {lat: 53.8968830, long: 27.5508090};
 
 var AdvertsMap;
 
-function init () {
+function init() {
     initMap();
 }
 
 
-function initMap()
-{
-    AdvertsMap  = new ymaps.Map('tutor_on_map', {
-        center: [mapDefaultCenter.lat, mapDefaultCenter.long],
+function initMap() {
+    if (typeof mapCenter === 'undefined' || typeof mapCenter.lat === 'undefined' || typeof mapCenter.long === 'undefined') {
+        mapCenter = mapDefaultCenter;
+    }
+
+    AdvertsMap = new ymaps.Map('tutor_on_map', {
+        center: [mapCenter.lat, mapCenter.long],
         zoom: 10
     });
 
 
-    var AdvertContentLayoutClass = ymaps.templateLayoutFactory.createClass( AdvertContentTemplate );
+    var AdvertContentLayoutClass = ymaps.templateLayoutFactory.createClass(AdvertContentTemplate);
     ymaps.layout.storage.add('advert#default', AdvertContentLayoutClass);
 
     var objectManager = new ymaps.ObjectManager({
@@ -31,7 +34,7 @@ function initMap()
         geoObjectBalloonMaxWidth: 600
     });
 
-    if(advertsList)
+    if (advertsList)
         objectManager.add(advertsList);
 
     AdvertsMap.geoObjects.add(objectManager);

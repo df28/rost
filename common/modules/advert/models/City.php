@@ -10,6 +10,8 @@ use yii\helpers\ArrayHelper;
  *
  * @property integer $id
  * @property string $name
+ * @property string $longitude
+ * @property string $latitude
  *
  * @property Advert[] $adverts
  */
@@ -30,6 +32,7 @@ class City extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
+            [['longitude', 'latitude'], 'number'],
             [['name'], 'string', 'max' => 100]
         ];
     }
@@ -42,6 +45,8 @@ class City extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => Yii::t('app','City'),
+            'longitude' => Yii::t('app', 'Longitude'),
+            'latitude' => Yii::t('app', 'Latitude'),
         ];
     }
 

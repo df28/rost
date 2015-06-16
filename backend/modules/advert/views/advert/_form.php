@@ -11,13 +11,9 @@ use \common\modules\advert\models\TutorGrade;
 /* @var $advertPriceModel common\modules\advert\models\AdvertPrice */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script>
 function setCoordinatesAndSubmit(form)
 {
-//    console.log(form['AdvertAddress[latitude]']);
-//    console.log(form['AdvertAddress[longitude]']);
-
     var address = form['Advert[address]'].value;
     if(address == '')
     {
@@ -90,7 +86,7 @@ $advertAddressModel = new \common\modules\advert\models\AdvertAddress();
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update',
             [
-                'class' => ($model->isNewRecord ? 'btn btn-success' : 'btn btn-primary').' hidden',
+                'class' => 'hidden',
                 'name' => 'hidden_submit_btn'
             ])
         ?>
