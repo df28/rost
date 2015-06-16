@@ -20,12 +20,15 @@ function initMap()
         zoom: 10
     });
 
+
     var AdvertContentLayoutClass = ymaps.templateLayoutFactory.createClass( AdvertContentTemplate );
     ymaps.layout.storage.add('advert#default', AdvertContentLayoutClass);
 
     var objectManager = new ymaps.ObjectManager({
         clusterize: true,
-        geoObjectBalloonContentLayout: AdvertContentLayoutClass
+        geoObjectBalloonContentLayout: AdvertContentLayoutClass,
+        geoObjectBalloonMaxHeight: 550,
+        geoObjectBalloonMaxWidth: 600
     });
 
     if(advertsList)

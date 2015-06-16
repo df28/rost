@@ -52,13 +52,13 @@ function getAdvertAsMapConfig(Advert $advert_model)
     $advert = [
         "type" => "Feature",
         "id" => $advert_model->id,
-        "balloonContentLayout" => "advert#default",
         "geometry" => [
             "type" => "Point",
             "coordinates" => $coords
         ],
         "properties" => [
             "balloonContentLayout" => "advert#default",
+            "balloonPanelMaxMapArea" => 0,
             //"balloonContent" => getAdvertCaptionForMap($advert_model),
             //"hintContent" => getAdvertCaptionForMap($advert_model),
             "tplVars" => getAdvertDataForTemplate($advert_model),
@@ -82,8 +82,6 @@ function getAdvertContentTemplateString(yii\web\View $view)
 ?>
 
 <div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?php
 
     $search_results = $dataProvider->getModels();
@@ -100,7 +98,7 @@ function getAdvertContentTemplateString(yii\web\View $view)
 
     ?>
 
-    <div id="tutor_on_map" style="width:600px;height:400px">
+    <div id="tutor_on_map" style="width:700px;height:500px">
     </div>
 
     <script>var advertsList =<?= json_encode($advertsMarksList) ?></script>
