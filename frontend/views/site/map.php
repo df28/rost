@@ -1,5 +1,5 @@
 <?php
-use yii\helpers\Html;
+
 use yii\helpers\ArrayHelper;
 use \common\modules\advert\models\Advert;
 use \common\modules\advert\models\City;
@@ -22,9 +22,9 @@ function getAdvertDataForTemplate(Advert $advert)
         "tutorName" => $advert->getTutorName(),
         "address" => $advert->address,//TODO: address string must be in AdvertAddress model??
 
-        "studentPlacePrice" => $advert_price->studentplace,
-        "tutorPlacePrice" => $advert_price->tutorplace,
-        "remotePlacePrice" => $advert_price->remote,
+        "studentPlacePrice" => $advert_price?$advert_price->studentplace:'',
+        "tutorPlacePrice" => $advert_price?$advert_price->tutorplace:'',
+        "remotePlacePrice" => $advert_price?$advert_price->remote:'',
 
         "subjects" => implode(", ", ArrayHelper::getColumn($advert->advertSubjects, 'name')),
         "goals" => implode(", ", ArrayHelper::getColumn($advert->advertGoals, 'name')),
@@ -94,7 +94,7 @@ function getAdvertMarksList($dataProvider)
     return $advertsMarksList;
 }
 
-function getCityCoords(City $city)
+function getCityCoords(City $city = null)
 {
     if (isset($city)) {
         if (
