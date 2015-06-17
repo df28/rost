@@ -7,12 +7,14 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
+use yii\web\UploadedFile;
 
 /**
  * User model
  *
  * @property integer $id
  * @property string $username
+ * @property string $avatar
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
@@ -26,6 +28,13 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+
+
+    /**
+     * @var mixed image the attribute for rendering the file input
+     * widget for upload on the form
+     */
+    public $image;
 
     /**
      * @inheritdoc
@@ -53,6 +62,8 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['image'], 'safe'],
+            [['image'], 'file', 'extensions'=>'jpg, gif, png'],
         ];
     }
 
@@ -195,4 +206,78 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return ArrayHelper::map(self::find()->asArray()->all(), 'id', 'username');
     }
+
+//=======================================================
+
+    /**
+     * fetch stored image file name with complete path
+     * @return string
+     */
+    public function getImageFile()
+    {
+        return isset($this->avatar) ? Yii::$app->params['avatarsDir'] . $this->avatar : null;
+    }
+
+    /**
+     * fetch stored image url
+     * @return string
+     */
+    public function getImageUrl()
+    {
+        // return a default image placeholder if your source avatar is not found
+        $avatar = isset($this->avatar) ? $this->avatar : 'default_user.jpg';
+        return Yii::$app->params['avatarsUrl'] . $avatar;
+    }
+
+    /**
+     * Process upload of image
+     *
+     * @return mixed the uploaded image instance
+     */
+    public function uploadImage() {
+        // get the uploaded file instance. for multiple file uploads
+        // the following data will return an array (you may need to use
+        // getInstances method)
+        $image = UploadedFile::getInstance($this, 'image');
+
+        // if no image was uploaded abort the upload
+        if (empty($image)) {
+            return false;
+        }
+
+        $chunks = explode(".", $image->name);
+        $ext = end($chunks);
+
+        // generate a unique file name
+        $this->avatar = Yii::$app->security->generateRandomString().".{$ext}";
+
+        // the uploaded image instance
+        return $image;
+    }
+
+    /**
+     * Process deletion of image
+     *
+     * @return boolean the status of deletion
+     */
+    public function deleteImage() {
+        $file = $this->getImageFile();
+
+        // check if file exists on server
+        if (empty($file) || !file_exists($file)) {
+            return false;
+        }
+
+        // check if uploaded file can be deleted on server
+        if (!unlink($file)) {
+            return false;
+        }
+
+        // if deletion successful, reset your file attributes
+        $this->avatar = null;
+
+        return true;
+    }
+
+
 }
