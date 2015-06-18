@@ -14,7 +14,7 @@ use yii\helpers\ArrayHelper;
 <div class="row advert_search_result">
     <div class="col-lg-3">
         <div class="tutor_card">
-            <img src="img/150x150.gif">
+            <img src="<?= $model->tutor->getImageUrl() ?>">
             <br />
             <?= $model->getTutorName() ?>
         </div>

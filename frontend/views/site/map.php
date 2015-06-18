@@ -29,7 +29,9 @@ function getAdvertDataForTemplate(Advert $advert)
         "subjects" => implode(", ", ArrayHelper::getColumn($advert->advertSubjects, 'name')),
         "goals" => implode(", ", ArrayHelper::getColumn($advert->advertGoals, 'name')),
         "grade" => $advert->getTutorGradeName(),
-        "experience" => $advert->experience
+        "experience" => $advert->experience,
+
+        "avatar" => $advert->tutor->getImageUrl()
     ];
 }
 

@@ -2,7 +2,7 @@
     <div class="row map_advert_baloon">
         <div class="col-lg-4">
             <div class="tutor_card">
-                <img src="img/150x150.gif">
+                <img src="{{ properties.tplVars.avatar }}">
                 <br/>
                 {{ properties.tplVars.tutorName }}
             </div>

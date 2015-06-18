@@ -28,6 +28,10 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'image' => [
+            'class' => 'yii\image\ImageDriver',
+            'driver' => 'GD',  //GD or Imagick
+        ],
     ],
     'params' => $params,
 ];

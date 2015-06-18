@@ -225,7 +225,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function getImageUrl()
     {
         // return a default image placeholder if your source avatar is not found
-        $avatar = isset($this->avatar) ? $this->avatar : 'default_user.jpg';
+        $avatar = isset($this->avatar) ? $this->avatar : '150x150.gif';
         return Yii::$app->params['avatarsUrl'] . $avatar;
     }
 

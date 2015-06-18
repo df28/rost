@@ -38,18 +38,23 @@ class UserController extends \yii\web\Controller
 
         if ($model->load(Yii::$app->request->post())) {
             // process uploaded image file instance
-            $image = $model->uploadImage();
+            $imageFile = $model->uploadImage();
 
             // revert back if no valid file instance uploaded
-            if ($image === false) {
+            if ($imageFile === false) {
                 $model->avatar = $oldAvatar;
             }
 
             if ($model->save()) {
                 // upload only if valid uploaded file instance found
-                if ($image !== false) { // delete old and overwrite
+                if ($imageFile !== false) {
                     $path = $model->getImageFile();
-                    $image->saveAs($path);
+                    $imageFile->saveAs($path);
+
+                    //resize to standard size
+                    $image = Yii::$app->image->load($path);
+                    $image->resize(150, 150, Yii\image\drivers\Image::AUTO);
+                    $image->save($path);
 
                     if($oldFile != null)
                         unlink($oldFile);
