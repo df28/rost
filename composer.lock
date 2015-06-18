@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "675c273b59e5ec86f7e3fb7c0276732d",
+    "hash": "935ae4b415e26e304a1d1487aa04a63c",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -318,16 +318,16 @@
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
-            "version": "v4.2.1",
+            "version": "v4.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "6ca9f207ad33deeb8556cbdd762182678c67bf10"
+                "reference": "963ab33aad3bceebe906437382e1a5aaa05ae754"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/6ca9f207ad33deeb8556cbdd762182678c67bf10",
-                "reference": "6ca9f207ad33deeb8556cbdd762182678c67bf10",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/963ab33aad3bceebe906437382e1a5aaa05ae754",
+                "reference": "963ab33aad3bceebe906437382e1a5aaa05ae754",
                 "shasum": ""
             },
             "type": "library",
@@ -362,7 +362,7 @@
                 "progress",
                 "upload"
             ],
-            "time": "2015-06-14 19:58:04"
+            "time": "2015-06-18 14:51:09"
         },
         {
             "name": "kartik-v/yii2-krajee-base",
@@ -747,6 +747,49 @@
                 "yii2"
             ],
             "time": "2015-05-10 22:12:32"
+        },
+        {
+            "name": "yurkinx/yii2-image",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yurkinx/yii2-image.git",
+                "reference": "a99384b9f856798c731d76ce78db0674b8ad7414"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yurkinx/yii2-image/zipball/a99384b9f856798c731d76ce78db0674b8ad7414",
+                "reference": "a99384b9f856798c731d76ce78db0674b8ad7414",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-0": {
+                    "yii\\image\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Yuri Kileev",
+                    "email": "kileev@gmail.com"
+                }
+            ],
+            "description": "Yii2 extension for image manipulating using Kohana Image Library.",
+            "homepage": "https://github.com/yurkinx/yii2-image",
+            "keywords": [
+                "extension",
+                "image",
+                "yii2"
+            ],
+            "time": "2015-05-19 19:10:47"
         }
     ],
     "packages-dev": [
@@ -1058,7 +1101,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "yurkinx/yii2-image": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
