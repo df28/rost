@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\models\User;
+use common\modules\advert\models\TutorPhones;
 use Yii;
 
 class UserController extends \yii\web\Controller
@@ -36,6 +37,8 @@ class UserController extends \yii\web\Controller
         $oldFile = $model->getImageFile();
         $oldAvatar = $model->avatar;
 
+        file_put_contents('debug.txt', print_r(Yii::$app->request->post(),true));
+
         if ($model->load(Yii::$app->request->post())) {
             // process uploaded image file instance
             $imageFile = $model->uploadImage();
@@ -59,6 +62,9 @@ class UserController extends \yii\web\Controller
                     if($oldFile != null)
                         unlink($oldFile);
                 }
+
+                $this->saveTutorPhones($model);
+
                 return $this->redirect(['index']);
             } else {
                 // error in saving model
@@ -67,6 +73,21 @@ class UserController extends \yii\web\Controller
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+
+    private function saveTutorPhones(User $model)
+    {
+        TutorPhones::deleteAll(['tutorid' => $model->id]);
+
+        $phones = array_filter([$model->phone1,$model->phone2, $model->phone3]);
+        foreach($phones as $p)
+        {
+            $phoneModel = new TutorPhones();
+            $phoneModel->isNewRecord = true;
+            $phoneModel->phone = $p;
+            $phoneModel->tutorid = $model->id;
+            $phoneModel->save();
+        }
     }
 
 }

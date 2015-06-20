@@ -37,7 +37,7 @@ use common\modules\advert\models\Subject;
     </div>
 
     <?php
-    if ($model->studyPlace != 0 || $model->experience != 0 || $model->goalId != 0) {
+    if (!empty($model->studyPlace) || $model->experience != 0 || $model->goalId != 0) {
         $advancedFormDisplay = "block";
     } else {
         $advancedFormDisplay = "none";

@@ -117,13 +117,13 @@ function getCityCoords(City $city = null)
 
     <div id="tutor_on_map" style="width:700px;height:500px"></div>
 
-    <script>var advertsList =<?= json_encode(getAdvertMarksList($dataProvider)) ?></script>
+    <script>var advertsList = <?= json_encode(getAdvertMarksList($dataProvider)) ?>;</script>
     <script>var AdvertContentTemplate = "<?php echo getAdvertContentTemplateString($thisView) ?>";</script>
 
     <?php
     $mapCenter = getCityCoords($searchModel->city);
     if ($mapCenter) { ?>
-        <script>var mapCenter = <?= json_encode($mapCenter) ?></script>
+        <script>var mapCenter = <?= json_encode($mapCenter) ?>;</script>
     <?php } ?>
 
 </div>

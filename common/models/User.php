@@ -1,6 +1,7 @@
 <?php
 namespace common\models;
 
+use common\modules\advert\models\TutorPhones;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -14,6 +15,13 @@ use yii\web\UploadedFile;
  *
  * @property integer $id
  * @property string $username
+ *
+ * @property string first_name
+ * @property string middle_name
+ * @property string last_name
+ * @property int experience
+ * @property TutorPhones[] $tutorPhones
+ *
  * @property string $avatar
  * @property string $password_hash
  * @property string $password_reset_token
@@ -35,6 +43,14 @@ class User extends ActiveRecord implements IdentityInterface
      * widget for upload on the form
      */
     public $image;
+    /**
+     * workaround for phones
+     */
+    public $phone1;
+    public $phone2;
+    public $phone3;
+
+#region default methods
 
     /**
      * @inheritdoc
@@ -62,8 +78,31 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            [['image'], 'safe'],
+            [['image','first_name', 'middle_name', 'last_name', 'address'], 'safe'],
+            [['image'], 'image'],
             [['image'], 'file', 'extensions'=>'jpg, gif, png'],
+            [['experience'], 'integer', 'min' => 0, 'max' => 100],
+            [['cityid'], 'integer'],
+            [['first_name', 'middle_name', 'last_name'], 'string', 'max' => 50],
+            [['address'], 'string', 'max' => 100],
+            [['phone1','phone2','phone3'], 'string'],
+            [['phone1','phone2','phone3'], 'safe'],
+        ];
+    }
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'cityid' => Yii::t('app','City'),
+            'username' => Yii::t('app','Login'),
+            'experience' => Yii::t('app', 'Experience'),
+            'address' => Yii::t('app', 'Address'),
+            'first_name' => Yii::t('app', 'First Name'),
+            'middle_name' => Yii::t('app', 'Middle Name'),
+            'last_name' => Yii::t('app', 'Last Name'),
+            'image' => Yii::t('app', 'Avatar'),
         ];
     }
 
@@ -207,7 +246,9 @@ class User extends ActiveRecord implements IdentityInterface
         return ArrayHelper::map(self::find()->asArray()->all(), 'id', 'username');
     }
 
-//=======================================================
+#endregion
+
+#region Avatar(image)
 
     /**
      * fetch stored image file name with complete path
@@ -278,6 +319,21 @@ class User extends ActiveRecord implements IdentityInterface
 
         return true;
     }
+
+#endregion
+
+#region Custom Fields
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTutorPhones()
+    {
+        return $this->hasMany(TutorPhones::className(), ['tutorid' => 'id']);
+    }
+
+#endregion
+
 
 
 }
