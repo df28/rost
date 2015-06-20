@@ -71,7 +71,7 @@ class UserController extends \yii\web\Controller
             }
         }
         return $this->render('update', [
-            'model' => $model,
+            'model' => $this->loadTutorPhones($model),
         ]);
     }
 
@@ -88,6 +88,16 @@ class UserController extends \yii\web\Controller
             $phoneModel->tutorid = $model->id;
             $phoneModel->save();
         }
+    }
+
+    private function loadTutorPhones(User $model)
+    {
+        $phones = $model->tutorPhones;
+        for($i=0;$i<count($phones);$i++)
+        {
+            $model['phone'.($i+1)] = $phones[$i]->phone;
+        }
+        return $model;
     }
 
 }
