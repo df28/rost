@@ -85,14 +85,16 @@ class AdvertController extends Controller
             } else {
                 return $this->render('update', [
                     'model' => $model,
-                    'advertPriceModel' => $advertPriceModel
+                    'advertPriceModel' => $advertPriceModel,
+                    'advertAddressModel' => $advertAddressModel
                 ]);
             }
 
         } else {
             return $this->render('create', [
                 'model' => $this->fillUserDefaultData($model),
-                'advertPriceModel' => $advertPriceModel
+                'advertPriceModel' => $advertPriceModel,
+                'advertAddressModel' => $advertAddressModel
             ]);
         }
     }
@@ -148,14 +150,16 @@ class AdvertController extends Controller
             } else {
                 return $this->render('update', [
                     'model' => $model,
-                    'advertPriceModel' => $advertPriceModel
+                    'advertPriceModel' => $advertPriceModel,
+                    'advertAddressModel' => $advertAddressModel
                 ]);
             }
 
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'advertPriceModel' => $advertPriceModel
+                'advertPriceModel' => $advertPriceModel,
+                'advertAddressModel' => $advertAddressModel
             ]);
         }
     }
