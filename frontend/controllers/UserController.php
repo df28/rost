@@ -37,8 +37,6 @@ class UserController extends \yii\web\Controller
         $oldFile = $model->getImageFile();
         $oldAvatar = $model->avatar;
 
-        file_put_contents('debug.txt', print_r(Yii::$app->request->post(),true));
-
         if ($model->load(Yii::$app->request->post())) {
             // process uploaded image file instance
             $imageFile = $model->uploadImage();

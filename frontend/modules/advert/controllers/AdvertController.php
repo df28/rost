@@ -4,10 +4,10 @@ namespace frontend\modules\advert\controllers;
 
 use common\modules\advert\models\AdvertAddress;
 use common\modules\advert\models\AdvertPrice;
-use Yii;
 use common\modules\advert\models\Advert;
 use frontend\modules\advert\models\AdvertAdminSearch;
-use yii\data\ActiveDataProvider;
+use common\models\User;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -91,10 +91,21 @@ class AdvertController extends Controller
 
         } else {
             return $this->render('create', [
-                'model' => $model,
+                'model' => $this->fillUserDefaultData($model),
                 'advertPriceModel' => $advertPriceModel
             ]);
         }
+    }
+
+    private function fillUserDefaultData(Advert $model)
+    {
+        $id = intval(Yii::$app->user->id);
+        if (($userModel = User::findOne($id)) !== null) {
+            $model->experience = $userModel->experience;
+            $model->cityid = $userModel->cityid;
+            $model->address = $userModel->address;
+        }
+        return $model;
     }
 
     /**

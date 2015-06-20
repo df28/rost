@@ -20,6 +20,7 @@ use yii\web\UploadedFile;
  * @property string middle_name
  * @property string last_name
  * @property int experience
+ * @property int address
  * @property TutorPhones[] $tutorPhones
  *
  * @property string $avatar
