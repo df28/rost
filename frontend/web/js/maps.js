@@ -39,3 +39,26 @@ function initMap() {
 
     AdvertsMap.geoObjects.add(objectManager);
 }
+
+function showAdvertFullInfo(advertId)
+{
+    var template = $.templates("#advertFullContentTemplate");
+
+    var list = advertsList["features"];
+    var advert = null;
+    for(var i=0;i<list.length;i++)
+    {
+        if(list[i].id == advertId)
+        {
+            advert = list[i];
+            break;
+        }
+    }
+
+    if(advert == null)
+        return;
+
+    var htmlOutput = template.render(advert["properties"]["tplVars"]);
+    $("#advertBalloonExtendedPopupContent").html(htmlOutput);
+    $("#advertBalloonExtendedPopup").modal();
+}

@@ -85,11 +85,14 @@ class AdvertSearch extends Advert
 //            }]);
 //        }
 
-        if(!empty($this->cityid)) {
-            $query->joinWith(['city' => function ($q) {
-                $q->where('city.id = "' . $this->cityid . '"');
-            }]);
+        if(empty($this->cityid)) {
+            $this->cityid = 1;
         }
+
+        $query->joinWith(['city' => function ($q) {
+            $q->where('city.id = "' . $this->cityid . '"');
+        }]);
+
 
         if(!empty($this->goalId)) {
 //            $query->joinWith(['advertGoals' => function ($q) {

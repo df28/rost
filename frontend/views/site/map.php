@@ -18,8 +18,11 @@ function getAdvertDataForTemplate(Advert $advert)
 {
     $advert_price = $advert->advertPrice;
     return [
+        "id" => $advert->id,
         "city" => $advert->getCityName(),
         "tutorName" => $advert->getTutorName(),
+        "tutorPhones" => implode("\n", ArrayHelper::getColumn($advert->tutor->tutorPhones, 'phone')),
+        "tutorPhonesLines" => implode("<br />", ArrayHelper::getColumn($advert->tutor->tutorPhones, 'phone')),
         "address" => $advert->address,//TODO: address string must be in AdvertAddress model??
 
         "studentPlacePrice" => $advert_price?$advert_price->studentplace:'',
@@ -30,6 +33,8 @@ function getAdvertDataForTemplate(Advert $advert)
         "goals" => implode(", ", ArrayHelper::getColumn($advert->advertGoals, 'name')),
         "grade" => $advert->getTutorGradeName(),
         "experience" => $advert->experience,
+
+        "description" => $advert->description,
 
         "avatar" => $advert->tutor->getImageUrl()
     ];
@@ -126,4 +131,14 @@ function getCityCoords(City $city = null)
         <script>var mapCenter = <?= json_encode($mapCenter) ?>;</script>
     <?php } ?>
 
+</div>
+<script id="advertFullContentTemplate" type="text/x-jsrender">
+<?= $this->render("templates/advert_full_content_template"); ?>
+</script>
+
+<div class="modal fade" id="advertBalloonExtendedPopup">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="advertBalloonExtendedPopupContent">
+        </div>
+    </div>
 </div>

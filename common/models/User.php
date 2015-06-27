@@ -333,6 +333,11 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->hasMany(TutorPhones::className(), ['tutorid' => 'id']);
     }
 
+    public function getTutorName()
+    {
+        return implode(' ',array_filter([$this->last_name, $this->first_name, $this->middle_name]));
+    }
+
 #endregion
 
 

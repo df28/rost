@@ -318,16 +318,16 @@
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
-            "version": "v4.2.2",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "963ab33aad3bceebe906437382e1a5aaa05ae754"
+                "reference": "1b30f372977efdb5aa1cc8b706d9e40be90ff904"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/963ab33aad3bceebe906437382e1a5aaa05ae754",
-                "reference": "963ab33aad3bceebe906437382e1a5aaa05ae754",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/1b30f372977efdb5aa1cc8b706d9e40be90ff904",
+                "reference": "1b30f372977efdb5aa1cc8b706d9e40be90ff904",
                 "shasum": ""
             },
             "type": "library",
@@ -362,7 +362,7 @@
                 "progress",
                 "upload"
             ],
-            "time": "2015-06-18 14:51:09"
+            "time": "2015-06-21 13:36:43"
         },
         {
             "name": "kartik-v/yii2-krajee-base",
@@ -412,21 +412,21 @@
         },
         {
             "name": "kartik-v/yii2-widget-fileinput",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
-                "reference": "c78637387dd5306002ae5613d9f9cab8a5df975d"
+                "reference": "d96e605a9c9d72774b6dd6cd64a8a766e9b1bb7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/c78637387dd5306002ae5613d9f9cab8a5df975d",
-                "reference": "c78637387dd5306002ae5613d9f9cab8a5df975d",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/d96e605a9c9d72774b6dd6cd64a8a766e9b1bb7c",
+                "reference": "d96e605a9c9d72774b6dd6cd64a8a766e9b1bb7c",
                 "shasum": ""
             },
             "require": {
-                "kartik-v/bootstrap-fileinput": "*",
-                "kartik-v/yii2-krajee-base": "*"
+                "kartik-v/bootstrap-fileinput": "~4.2",
+                "kartik-v/yii2-krajee-base": "~1.7"
             },
             "type": "yii2-extension",
             "autoload": {
@@ -436,7 +436,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD 3-Clause"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
@@ -458,7 +458,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-05-03 14:11:04"
+            "time": "2015-06-26 15:03:56"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -754,12 +754,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yurkinx/yii2-image.git",
-                "reference": "a99384b9f856798c731d76ce78db0674b8ad7414"
+                "reference": "0d6d261bf9c2dc35e9ad8c5cc56793580b74eefd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yurkinx/yii2-image/zipball/a99384b9f856798c731d76ce78db0674b8ad7414",
-                "reference": "a99384b9f856798c731d76ce78db0674b8ad7414",
+                "url": "https://api.github.com/repos/yurkinx/yii2-image/zipball/0d6d261bf9c2dc35e9ad8c5cc56793580b74eefd",
+                "reference": "0d6d261bf9c2dc35e9ad8c5cc56793580b74eefd",
                 "shasum": ""
             },
             "require": {
@@ -789,7 +789,7 @@
                 "image",
                 "yii2"
             ],
-            "time": "2015-05-19 19:10:47"
+            "time": "2015-06-24 13:41:22"
         }
     ],
     "packages-dev": [

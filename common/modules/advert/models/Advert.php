@@ -81,7 +81,7 @@ class Advert extends \yii\db\ActiveRecord
 
     public function getTutorName()
     {
-        return $this->tutor->username;
+        return $this->tutor->getTutorName();
     }
     /**
      * @return \yii\db\ActiveQuery

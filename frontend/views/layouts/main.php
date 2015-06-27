@@ -87,6 +87,7 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
+<script src="/js/jsrender.min.js" type="text/javascript"></script>
 </body>
 </html>
 <?php $this->endPage() ?>

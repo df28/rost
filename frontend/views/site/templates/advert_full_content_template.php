@@ -1,12 +1,18 @@
-<div class="container" style="width:550px;max-width: 550px; max-height:550px;">
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">{{:tutorName }}</h4>
+</div>
+<div class="modal-body">
+
+<div class="">
     <div class="row map_advert_baloon">
         <div class="col-lg-4">
             <div class="tutor_card">
-                <img src="{{ properties.tplVars.avatar }}">
+                <img src="{{:avatar }}">
                 <br/>
-                {{ properties.tplVars.tutorName }}
+                {{:tutorName }}
                 <br/>
-                {{ properties.tplVars.tutorPhones }}
+                {{html:tutorPhonesLines }}
             </div>
         </div>
         <div class="col-lg-8">
@@ -16,7 +22,7 @@
                     <label>Адрес</label>
                 </div>
                 <div class="col-sm-8">
-                    <value>{{ properties.tplVars.city }}, {{ properties.tplVars.address }}</value>
+                    <value>{{:city }}, {{:address }}</value>
                 </div>
             </div>
 
@@ -32,9 +38,9 @@
                             <td>Дистанционно</td>
                         </tr>
                         <tr>
-                            <td>{{ properties.tplVars.studentPlacePrice }}</td>
-                            <td>{{ properties.tplVars.tutorPlacePrice }}</td>
-                            <td>{{ properties.tplVars.remotePlacePrice }}</td>
+                            <td>{{:studentPlacePrice }}</td>
+                            <td>{{:tutorPlacePrice }}</td>
+                            <td>{{:remotePlacePrice }}</td>
                         </tr>
                     </table>
                 </div>
@@ -45,7 +51,7 @@
                     <label>Предметы</label>
                 </div>
                 <div class="col-sm-8">
-                    <value>{{ properties.tplVars.subjects }}</value>
+                    <value>{{:subjects}}</value>
                 </div>
             </div>
 
@@ -54,7 +60,7 @@
                     <label>Цели</label>
                 </div>
                 <div class="col-sm-8">
-                    <value>{{ properties.tplVars.goals }}</value>
+                    <value>{{:goals }}</value>
                 </div>
             </div>
 
@@ -63,7 +69,7 @@
                     <label>Статус репетитора</label>
                 </div>
                 <div class="col-sm-8">
-                    <value>{{ properties.tplVars.grade }}</value>
+                    <value>{{:grade}}</value>
                 </div>
             </div>
 
@@ -72,15 +78,21 @@
                     <label>Стаж преподавания</label>
                 </div>
                 <div class="col-sm-8">
-                    <value>{{ properties.tplVars.experience|default: Без опыта }}</value>
+                    <value>{{:experience}}</value>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-sm-12 text-right">
-                    <a href="#" role="button" onClick="showAdvertFullInfo('{{ properties.tplVars.id }}');return false;">Подробнее</a>
-                </div>
-            </div>
         </div>
     </div>
+<hr />
+    <div class="row">
+        <div class="col-sm-12">
+            <value>{{:description}}</value>
+        </div>
+    </div>
+</div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
 </div>
